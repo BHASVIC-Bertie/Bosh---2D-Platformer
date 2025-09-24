@@ -5,7 +5,6 @@ public class CameraScript : MonoBehaviour
 {
     
     private Transform player;
-    
     private Vector3 tempPos;
     private Bounds _cameraBounds;
     private Vector3 _targetPos;
