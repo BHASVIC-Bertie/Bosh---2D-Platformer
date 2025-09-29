@@ -12,8 +12,8 @@ public class PlayerCollider : MonoBehaviour
         playerCollider = GetComponent<Collider2D>();
         playerCollider.isTrigger = false;
     }
-    private void OnTriggerEnter(Collider Teleporter){
+    /*private void OnTriggerEnter(Collider Teleporter){
         targetPosition = new Vector3(-20.184f, 10.408f, 0f);
         player.transform.position = targetPosition;
-    }
+    }*/
 }
