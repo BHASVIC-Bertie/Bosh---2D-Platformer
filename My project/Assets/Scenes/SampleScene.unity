@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 485788796}
   m_Layer: 0
   m_Name: Level 1 platform
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1069,7 +1069,7 @@ Transform:
   m_GameObject: {fileID: 1169595293}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.431221, y: -4.2319922, z: 0}
+  m_LocalPosition: {x: 13.423009, y: -4.23199, z: 0}
   m_LocalScale: {x: 5.6735, y: 5.6735, z: 5.6735}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1088,7 +1088,7 @@ GameObject:
   - component: {fileID: 1209530970}
   m_Layer: 0
   m_Name: PlaceholderPlatform_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1452,7 +1452,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1422698883}
   m_Layer: 0
-  m_Name: Platforms
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1739,8 +1739,8 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.722597
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -1769,6 +1769,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveForce: 10
   jumpForce: 10
+  Jump: {x: 0, y: 0, z: 0}
 --- !u!1 &1883137039
 GameObject:
   m_ObjectHideFlags: 0

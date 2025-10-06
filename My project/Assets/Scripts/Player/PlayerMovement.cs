@@ -1,23 +1,32 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float moveForce = 6f;
-    public float jumpForce = 10f;
+    public float jumpForce = 5f;
+    public Vector3 Jump;
+    
     private float movementY;
     private Rigidbody2D rb;
 
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
+        
     }
     void Update()
     {
         PlayerMoveKeyboard();
-        PlayerJump();
         PlayerTeleportButton();
     }
-    
+
+    private void FixedUpdate()
+    {
+        PlayerJump();
+    }
+
     void PlayerMoveKeyboard()
     {
         
@@ -26,10 +35,12 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    
     void PlayerJump()
     {
-        if (Input.GetKey("e"))
+        if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            isGrounded = false;
             rb.AddForce(new Vector2(0f, jumpForce), ForceMode2D.Impulse);
         }
     }
@@ -41,5 +52,18 @@ public class PlayerMovement : MonoBehaviour
             transform.position = new Vector3(-8.978f, 9.675f, 0f);
         }
     }
+    private bool isGrounded;
+    void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Ground")) {
+            isGrounded = true;
+        }
+    }
 
+    void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
+    }
 }
