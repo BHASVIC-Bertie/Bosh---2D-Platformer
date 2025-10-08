@@ -3,21 +3,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    //movement:
     public float moveForce = 6f;
     public float jumpForce = 5f;
     public Vector3 Jump;
-    
     private float movementY;
+    
+    //player
+    
+    
     private Rigidbody2D rb;
 
     void Start()
     {
-        
+        Vector3 CurrentSpawnPoint;
+        CurrentSpawnPoint = new Vector3(-7.884f,-1.6f,0f);
         rb = GetComponent<Rigidbody2D>();
         
     }
     void Update()
     {
+        
         PlayerMoveKeyboard();
         PlayerTeleportButton();
     }
@@ -53,12 +59,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
     private bool isGrounded;
-    void OnCollisionEnter2D(Collision2D collision) {
+    void OnCollisionEnter2D(Collision2D collision) 
+    {
         if (collision.gameObject.CompareTag("Ground")) {
             isGrounded = true;
         }
-    }
-
+    } 
     void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -66,4 +72,6 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = false;
         }
     }
+
+
 }
