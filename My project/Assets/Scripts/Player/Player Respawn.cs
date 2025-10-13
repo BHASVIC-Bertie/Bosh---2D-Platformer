@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     public Vector3 CurrentSpawnPoint;
-    bool playerDead = false;
+    public bool playerDead = false;
 
 
     void Update()
@@ -28,11 +28,6 @@ public class PlayerRespawn : MonoBehaviour
             playerDead = false;
         }
     }
-/*
-    public Vector3 GetSpawnPoint { get { return CurrentSpawnPoint; } }
-
-    public Vector3 SetSpawnPoint { set { CurrentSpawnPoint = value; } }
-*/
 }
 
 

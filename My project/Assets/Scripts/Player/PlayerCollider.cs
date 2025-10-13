@@ -5,6 +5,7 @@ public class PlayerCollider : MonoBehaviour
     private GameObject player;
     private Collider2D playerCollider;
     public Vector3 targetPosition;
+    bool playerDead = false;
     
     void Start()
     {
@@ -16,4 +17,5 @@ public class PlayerCollider : MonoBehaviour
         targetPosition = new Vector3(-20.184f, 10.408f, 0f);
         player.transform.position = targetPosition;
     }*/
+    
 }
