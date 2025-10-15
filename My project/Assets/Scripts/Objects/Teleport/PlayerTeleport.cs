@@ -10,7 +10,7 @@ public class PlayerTeleport : MonoBehaviour
         Teleporter.isTrigger = true;
     }
     
-    /*private void OnTriggerEnter(Collider playerCollider){
+    private void OnTriggerEnter(Collider playerCollider){
         transform.position = new Vector3(-20.184f, 10.408f, 0f);
-    }*/
+    }
 }

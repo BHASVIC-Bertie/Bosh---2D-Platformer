@@ -5,9 +5,10 @@ public class PlayerMovement : MonoBehaviour
 {
     //movement:
     public float moveForce = 6f;
-    public float jumpForce = 50f;
+    public float jumpForce = 5f;
     public Vector3 Jump;
     private float movementY;
+    public float jumpAmount = 10;
     
     //player
     
@@ -17,8 +18,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 CurrentSpawnPoint;
-        CurrentSpawnPoint = new Vector3(-7.884f,-1.6f,0f);
+        
+        
         rb = GetComponent<Rigidbody2D>();
     }
     void Update()
@@ -30,21 +31,24 @@ public class PlayerMovement : MonoBehaviour
 // Update is called once per frame
     private void FixedUpdate()
     {
-        
     }
 
     void PlayerMoveKeyboard()
     {
+        float movementX = Input.GetAxisRaw("Horizontal");
+        transform.position += new Vector3(movementX, 0f, 0f) * moveForce * Time.deltaTime;
+        /* Use this code at some point:
         Vector3 movementX = new Vector3(Input.GetAxis("Horizontal"), 0);
         rb.MovePosition(transform.position + Time.fixedDeltaTime * moveForce * movementX);
+        */   
     }
     
     void PlayerJump()
     {
         if (Input.GetButton("Jump") && isGrounded)
         {
-            
-            rb.AddForce(new Vector2(0f, jumpForce),  ForceMode2D.Impulse);
+            rb.AddForce(Vector3.up * jumpForce,  ForceMode2D.Impulse);
+            isGrounded = false;
             print("JUMP");
         }
     }
@@ -63,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")) {
             isGrounded = true;
-            print("grounded");
+            print(isGrounded);
         }
     } 
     void OnCollisionExit2D(Collision2D collision)
@@ -71,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            print("not grounded");
+            print(isGrounded);
         }
     }
 

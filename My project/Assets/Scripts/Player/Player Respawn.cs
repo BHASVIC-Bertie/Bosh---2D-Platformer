@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerRespawn : MonoBehaviour
@@ -5,6 +6,10 @@ public class PlayerRespawn : MonoBehaviour
     public Vector3 CurrentSpawnPoint;
     public bool playerDead = false;
 
+    private void Start()
+    {
+        CurrentSpawnPoint = new Vector3(-7.884f,-1.6f,0f);
+    }
 
     void Update()
     {
