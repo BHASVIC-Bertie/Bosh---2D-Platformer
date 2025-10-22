@@ -3,17 +3,16 @@ using UnityEngine.UI;
 public class SettingsMenu : StartMenu
 {
     public Button ControlsButton;
-    public GameObject GameControls;
 
-    private void ControlsMenu()
+//opens controls settings 
+    private void ControlsActive()
     {
-        GameControls.SetActive(false);
-        Settings.SetActive(false);
+        Controls.SetActive(true);
     }
     
     private void Update()
     {
-        ControlsButton.onClick.AddListener(ControlsMenu);
+        ControlsButton.onClick.AddListener(ControlsActive);
         BackButton.onClick.AddListener(StartMenuActive);
     }
 }
