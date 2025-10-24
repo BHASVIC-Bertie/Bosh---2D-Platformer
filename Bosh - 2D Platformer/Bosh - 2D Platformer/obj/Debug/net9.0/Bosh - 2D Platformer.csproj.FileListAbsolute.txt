@@ -1,5 +1,0 @@
-C:\Users\bertie.taylor24\Downloads\Bosh---2D-Platformer\Bosh - 2D Platformer\Bosh - 2D Platformer\obj\Debug\net9.0\Bosh - 2D Platformer.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\bertie.taylor24\Downloads\Bosh---2D-Platformer\Bosh - 2D Platformer\Bosh - 2D Platformer\obj\Debug\net9.0\Bosh - 2D Platformer.AssemblyInfoInputs.cache
-C:\Users\bertie.taylor24\Downloads\Bosh---2D-Platformer\Bosh - 2D Platformer\Bosh - 2D Platformer\obj\Debug\net9.0\Bosh - 2D Platformer.AssemblyInfo.cs
-C:\Users\bertie.taylor24\Downloads\Bosh---2D-Platformer\Bosh - 2D Platformer\Bosh - 2D Platformer\obj\Debug\net9.0\Bosh - 2D Platformer.csproj.CoreCompileInputs.cache
-C:\Users\bertie.taylor24\Downloads\Bosh---2D-Platformer\Bosh - 2D Platformer\Bosh - 2D Platformer\obj\Debug\net9.0\Bosh - 2D Platformer.sourcelink.json

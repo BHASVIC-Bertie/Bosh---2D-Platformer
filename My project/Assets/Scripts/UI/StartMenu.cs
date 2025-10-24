@@ -6,7 +6,7 @@ public class StartMenu : MonoBehaviour
 {
     public Button PlayButton, SettingsButton, BackButton;
     public GameObject Menu, Settings, Controls;
-    
+    public bool isPaused;
     private void Start()
     {
         Time.timeScale = 0f;
@@ -26,6 +26,7 @@ public class StartMenu : MonoBehaviour
     private void GameStart()
     {
         Time.timeScale = 1f;
+        isPaused = false;
         Menu.SetActive(false);
         Settings.SetActive(false);
         Controls.SetActive(false);

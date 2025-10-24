@@ -1,12 +1,19 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PauseGame : MonoBehaviour
 {
-    bool isPaused;
+    public bool isPaused;
     
+    void Start()
+    {
+        StartCoroutine(CheckForPause());
+    }
     void Pause()
     {
-        if (Input.GetKey("escape") && !isPaused)
+        if (Input.GetButton("Cancel") && !isPaused)
         {
             print("PAUSE");
             Time.timeScale = 0f;
@@ -26,6 +33,17 @@ public class PauseGame : MonoBehaviour
     void Update()
     {
         Pause();
-        unPause();
+
+    }
+    
+    // checks every 0.1 seconds
+    IEnumerator CheckForPause()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(0.1f); 
+            unPause();
+        }
+        
     }
 }
