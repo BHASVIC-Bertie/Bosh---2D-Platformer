@@ -2,42 +2,42 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PauseGame : MonoBehaviour
+using UnityEngine.UI;
+public class PauseGame : StartMenu
 {
     public bool isPaused;
-    
+    public Button ResumeButton;
     void Start()
     {
-        StartCoroutine(CheckForPause());
+        //StartCoroutine(CheckForPause());
     }
     void Pause()
     {
         if (Input.GetButton("Cancel") && !isPaused)
         {
             print("PAUSE");
+            PauseMenu.SetActive(true);
             Time.timeScale = 0f;
             isPaused = true;
         }
     }
+    
     void unPause()
     {
-        if (Input.GetKey("escape") && isPaused)
-        {
             print("UNPAUSE");
+            PauseMenu.SetActive(false);
             Time.timeScale = 1f;
             isPaused = false;
-        }
     }
-    
     void Update()
     {
         Pause();
-
+        ResumeButton.onClick.AddListener(unPause);
+        
     }
     
     // checks every 0.1 seconds
-    IEnumerator CheckForPause()
+    /*IEnumerator CheckForPause()
     {
         while (true)
         {
@@ -45,5 +45,5 @@ public class PauseGame : MonoBehaviour
             unPause();
         }
         
-    }
+    }*/
 }

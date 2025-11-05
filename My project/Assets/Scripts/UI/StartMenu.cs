@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class StartMenu : MonoBehaviour
 {
     public Button PlayButton, SettingsButton, BackButton;
-    public GameObject Menu, Settings, Controls;
+    public GameObject Menu, Settings, Controls,PauseMenu;
     public bool isPaused;
     private void Start()
     {
@@ -13,6 +13,7 @@ public class StartMenu : MonoBehaviour
         Menu.SetActive(true);
         Settings.SetActive(false);
         Controls.SetActive(false);
+        PauseMenu.SetActive(false);
 ;
     }
     
