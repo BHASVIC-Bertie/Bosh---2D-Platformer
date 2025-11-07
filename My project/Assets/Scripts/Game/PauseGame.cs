@@ -5,7 +5,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class PauseGame : StartMenu
 {
-    public bool isPaused;
     public Button ResumeButton;
     void Start()
     {

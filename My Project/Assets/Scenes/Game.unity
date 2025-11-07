@@ -474,7 +474,6 @@ MonoBehaviour:
   Controls: {fileID: 462989748}
   PauseMenu: {fileID: 1914307272}
   isPaused: 0
-  isPaused: 0
   ResumeButton: {fileID: 1782372331}
 --- !u!4 &168008606
 Transform:
@@ -5320,13 +5319,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 190678683}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.9375, y: 1.0404, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0.38268343, w: 0.92387956}
+  m_LocalPosition: {x: -0.71865416, y: -0.67910624, z: 0}
   m_LocalScale: {x: 1.9649, y: 0.9592, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 29176598}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45}
 --- !u!61 &190678685
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6164,7 +6163,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 1408556283978080801, guid: b84b9285c89e3be47b68bb5e840910b1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8089,7 +8088,7 @@ MonoBehaviour:
   Menu: {fileID: 29983246}
   Settings: {fileID: 1325172083}
   Controls: {fileID: 462989748}
-  PauseMenu: {fileID: 0}
+  PauseMenu: {fileID: 1914307272}
   isPaused: 0
   ControlsButton: {fileID: 426740353}
 --- !u!1 &1332664702
@@ -9013,9 +9012,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveForce: 10
-  jumpForce: 20
-  Jump: {x: 0, y: 0, z: 0}
-  jumpAmount: 10
+  rb: {fileID: 0}
 --- !u!114 &1824493659
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9161,7 +9158,7 @@ Transform:
   m_GameObject: {fileID: 1859330446}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.61, y: -0.45, z: 0}
+  m_LocalPosition: {x: -3.2665389, y: 1.6759365, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
