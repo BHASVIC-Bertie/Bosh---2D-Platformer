@@ -1,52 +1,49 @@
-using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //movement:
-    public float moveForce = 6f;
-    private float jumpHeight = 10f;
-    private float movementY;
-    
-    //player
-    
-    
-    public Rigidbody2D rb;
+    //variables
+    public float moveSpeed = 5f;
+    public float jumpForce = 10f;
+    public float jumpNumber = 2;
+    public float jumpsLeft;
 
-    // Start is called before the first frame update
+    //player physics
+    private Rigidbody2D rb;
+    private bool jumpPressed;
+    private float moveInput;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
+
     void Update()
     {
+        // get movement input
+        moveInput = Input.GetAxis("Horizontal");
+
+        // get jump input
+        if (Input.GetButtonDown("Jump") && jumpsLeft > 0)
+        {
+            jumpPressed = true;
+        }
+
         PlayerTeleportButton();
-        
-    }
-// Update is called once per frame
-    private void FixedUpdate()
-    {
-        PlayerMoveKeyboard();
-        PlayerJump();
     }
 
-    void PlayerMoveKeyboard()
+    void FixedUpdate()
     {
-        Vector3 movementX = new Vector3(Input.GetAxis("Horizontal"), 0);
-        rb.MovePosition(transform.position + Time.fixedDeltaTime * moveForce * movementX);
-    }
-    
-    void PlayerJump()
-    {
-        float jumpForce = Mathf.Sqrt(jumpHeight * -2 * (Physics2D.gravity.y * rb.gravityScale));
-        if (Input.GetButton("Jump"))//&& isGrounded)
+        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+
+        // jump
+        if (jumpPressed)
         {
-            rb.AddForce(Vector2.up * jumpForce,  ForceMode2D.Impulse);
-            isGrounded = false;
-            print("JUMP");
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            jumpPressed = false;
+            jumpsLeft--;
         }
     }
-    
     void PlayerTeleportButton()
     {
         if (Input.GetKey("t"))
@@ -61,7 +58,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")) {
             isGrounded = true;
-            print(isGrounded);
+            jumpsLeft = jumpNumber;
+            print("grounded:" + isGrounded);
         }
     } 
     void OnCollisionExit2D(Collision2D collision)
@@ -69,9 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            print(isGrounded);
+            print("grounded:" + isGrounded);
         }
     }
-
-
 }

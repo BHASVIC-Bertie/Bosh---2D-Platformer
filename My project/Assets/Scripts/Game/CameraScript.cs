@@ -37,7 +37,7 @@ public class CameraScript : MonoBehaviour
         //follow player
         tempPos = transform.position;
         tempPos.x = player.position.x;
-        tempPos.y = player.position.y + 5/2;
+        tempPos.y = player.position.y+1.8f;
         
         transform.position = tempPos;
     }

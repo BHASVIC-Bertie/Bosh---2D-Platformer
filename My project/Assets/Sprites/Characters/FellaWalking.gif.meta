@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4e024f75712698b4c88153de06ac3cb4
+guid: 3dd65e54dbc4f8045873448411d0faf3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7480432201385339775
-    second: UnfinishedCityStreet3_0
+      213: 6257540354616256591
+    second: FellaWalking_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: UnfinishedCityStreet3_0
+      name: FellaWalking_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 316
-        height: 180
+        width: 13
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 184980ebb8a203890800000000000000
-      internalID: -7480432201385339775
+      spriteID: f48e2947ccf37d650800000000000000
+      internalID: 6257540354616256591
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      UnfinishedCityStreet3_0: -7480432201385339775
+      FellaWalking_0: 6257540354616256591
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
