@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground")) {
             isGrounded = true;
             jumpsLeft = jumpNumber;
-            print("grounded:" + isGrounded);
+            //print("grounded:" + isGrounded);
         }
     } 
     void OnCollisionExit2D(Collision2D collision)
@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
-            print("grounded:" + isGrounded);
+            //print("grounded:" + isGrounded);
         }
     }
 }
