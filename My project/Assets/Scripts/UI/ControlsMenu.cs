@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class ControlsMenu : StartMenu
 {
+    //opens the settings menu
     public void SettingsActive()
     {
         Controls.SetActive(false);

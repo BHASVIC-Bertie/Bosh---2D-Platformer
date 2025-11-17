@@ -12,7 +12,9 @@ public class GrapplingHook : MonoBehaviour
 
     private DistanceJoint2D joint;
     private Vector2 grapplePoint;
+    Vector2 mousePos;
     private bool isGrappling = false;
+
 
     void Start()
     {
@@ -25,25 +27,33 @@ public class GrapplingHook : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))      // right-click to shoot rope
+        if (Input.GetMouseButtonDown(0))
+        {
+            
+            // left click to shoot rope
             StartGrapple();
-
-        if (Input.GetMouseButtonUp(1))        // release to cancel
+            print("grapple");
+        }
+        Vector2 lookDir = mousePos - rb.position;
+        if (Input.GetMouseButtonDown(1))
+        {
+            // release to cancel
             StopGrapple();
-
-        if (isGrappling)
-            UpdateRope();
+            print("grapple stopped");
+        }
     }
 
     void StartGrapple()
     {
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        // cast a ray from the player toward the cursor
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos - rb.position, 30f, grappleMask);
-
+        // cast a ray from the player towards the mouse cursor
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 30f, grappleMask);
+        
+       
         if (hit.collider != null)
         {
+            print("hit");
             grapplePoint = hit.point;
             isGrappling = true;
 
@@ -51,10 +61,15 @@ public class GrapplingHook : MonoBehaviour
             joint.connectedAnchor = grapplePoint;
             joint.distance = Vector2.Distance(transform.position, grapplePoint);
 
-            // enable rope visual
+            //show the rope moving
             lineRenderer.enabled = true;
             lineRenderer.SetPosition(0, transform.position);
             lineRenderer.SetPosition(1, transform.position);
+            UpdateRope();
+        }
+        else
+        {
+            print("miss");
         }
     }
 
@@ -63,12 +78,8 @@ public class GrapplingHook : MonoBehaviour
         // draw rope
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, grapplePoint);
-
-        // OPTIONAL: slowly pull rope taut
-        if (joint.distance > 1f)
-            joint.distance -= ropeSpeed * Time.deltaTime;
+        
     }
-
     void StopGrapple()
     {
         isGrappling = false;
