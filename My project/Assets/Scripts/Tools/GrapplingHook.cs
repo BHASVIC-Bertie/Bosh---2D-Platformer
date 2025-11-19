@@ -37,7 +37,7 @@ public class GrapplingHook : MonoBehaviour
         Vector2 lookDir = mousePos - rb.position;
         if (Input.GetMouseButtonDown(1))
         {
-            // release to cancel
+            // right click to cancel
             StopGrapple();
             print("grapple stopped");
         }
