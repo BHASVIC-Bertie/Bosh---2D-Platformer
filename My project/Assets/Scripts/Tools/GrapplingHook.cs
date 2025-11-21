@@ -34,12 +34,16 @@ public class GrapplingHook : MonoBehaviour
             StartGrapple();
             print("grapple");
         }
-        Vector2 lookDir = mousePos - rb.position;
         if (Input.GetMouseButtonDown(1))
         {
             // right click to cancel
             StopGrapple();
             print("grapple stopped");
+        }
+
+        if (isGrappling = true)
+        {
+            UpdateRope();
         }
     }
 
@@ -78,6 +82,8 @@ public class GrapplingHook : MonoBehaviour
         // draw rope
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, grapplePoint);
+        lineRenderer.startColor = Color.white;
+        lineRenderer.endColor = Color.green;
         
     }
     void StopGrapple()
