@@ -12,9 +12,13 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool jumpPressed;
     private float moveInput;
+    private GrapplingHook grapplingHook;
+    public bool isGrappling;
 
     void Start()
     {
+        grapplingHook = GetComponent<GrapplingHook>();
+        isGrappling = false;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -34,7 +38,14 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        if (!grapplingHook.isGrappling)
+        {
+            rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
+        }
+        else
+        {
+            rb.AddForce(new Vector2(moveInput * moveSpeed * 10f, 0));
+        }
 
         // jump
         if (jumpPressed)
@@ -68,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isGrounded = false;
             //print("grounded:" + isGrounded);
+            
         }
     }
 }

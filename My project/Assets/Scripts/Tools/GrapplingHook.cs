@@ -13,16 +13,18 @@ public class GrapplingHook : MonoBehaviour
     private DistanceJoint2D joint;
     private Vector2 grapplePoint;
     Vector2 mousePos;
-    private bool isGrappling = false;
+    public bool isGrappling;
 
 
     void Start()
     {
         joint = GetComponent<DistanceJoint2D>();
         joint.enabled = false;
-
+        isGrappling = false;
         lineRenderer.enabled = false;
         lineRenderer.positionCount = 2;
+        lineRenderer.startColor = Color.gray2;
+        lineRenderer.endColor = Color.gray2;
     }
 
     void Update()
@@ -52,7 +54,7 @@ public class GrapplingHook : MonoBehaviour
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // cast a ray from the player towards the mouse cursor
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 30f, grappleMask);
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 4f, grappleMask);
         
        
         if (hit.collider != null)
@@ -82,8 +84,7 @@ public class GrapplingHook : MonoBehaviour
         // draw rope
         lineRenderer.SetPosition(0, transform.position);
         lineRenderer.SetPosition(1, grapplePoint);
-        lineRenderer.startColor = Color.white;
-        lineRenderer.endColor = Color.green;
+        
         
     }
     void StopGrapple()
