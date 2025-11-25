@@ -38,11 +38,11 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!grapplingHook.isGrappling)
+        //if (!grapplingHook.isGrappling)
         {
             rb.linearVelocity = new Vector2(moveInput * moveSpeed, rb.linearVelocity.y);
         }
-        else
+       // else
         {
             rb.AddForce(new Vector2(moveInput * moveSpeed * 10f, 0));
         }
