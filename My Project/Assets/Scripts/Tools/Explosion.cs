@@ -2,19 +2,17 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    public float explosionForce = 500f;
-    private float explosionRadius = 2f;
+    public float explosionForce = 1f;
+    private float explosionRadius = 2.5f;
+    
     Collider2D[] playerPresent = new Collider2D[1];
     ContactFilter2D playerFilter;
     public GameObject Bomb;
+    public ParticleSystem explosion;
+    public SpriteRenderer bombSprite;
     
-    Rigidbody2D rb;
-    ParticleSystem explosion;
-
     void Start()
     {
-        rb =  GetComponent<Rigidbody2D>();
-        
         playerFilter = new  ContactFilter2D();
         playerFilter.useLayerMask = true;
         playerFilter.SetLayerMask(LayerMask.GetMask("Player"));
@@ -28,7 +26,9 @@ public class Explosion : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground")) {
             ExplodePlayer();
-            Destroy(Bomb,0.5f);
+            bombSprite.enabled = false;
+            Destroy(Bomb,1.5f);
+            
         }
     }
     /*void Update()
@@ -51,6 +51,7 @@ public class Explosion : MonoBehaviour
             //use to scale force based on distance from the impulse
             float distanceModifier = 1 - (Mathf.Clamp(forceDirection.magnitude, 0, explosionRadius) / explosionRadius);
             playerPresent[0].attachedRigidbody.AddForce(forceDirection.normalized * (distanceModifier <= 0 ? 0 : explosionForce) * distanceModifier);
+            explosion.Play();
             
         }
     }

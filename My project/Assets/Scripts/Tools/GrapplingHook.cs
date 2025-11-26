@@ -54,7 +54,7 @@ public class GrapplingHook : MonoBehaviour
         Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
         // cast a ray from the player towards the mouse cursor
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 4f, grappleMask);
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 4.5f, grappleMask);
         
        
         if (hit.collider != null)
