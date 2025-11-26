@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
-    private float explosionForce = 100f;
-    private float explosionRadius = 1f;
+    public float explosionForce = 500f;
+    private float explosionRadius = 2f;
     Collider2D[] playerPresent = new Collider2D[1];
     ContactFilter2D playerFilter;
+    public GameObject Bomb;
     
     Rigidbody2D rb;
     ParticleSystem explosion;
@@ -20,13 +21,23 @@ public class Explosion : MonoBehaviour
         playerFilter.useTriggers = true;
         playerFilter.useDepth = false;
     }   
-    void Update()
+    
+    
+    //executes explosion when touching the ground
+    void OnCollisionEnter2D(Collision2D collision) 
+    {
+        if (collision.gameObject.CompareTag("Ground")) {
+            ExplodePlayer();
+            Destroy(Bomb,0.5f);
+        }
+    }
+    /*void Update()
     {
         if (Input.GetKey("e"))
         {
-            ExplodePlayer();
+            
         }
-    }
+    }*/
 
     void ExplodePlayer()
     {
@@ -36,10 +47,11 @@ public class Explosion : MonoBehaviour
         if (isPlayerPresent > 0)
         {
             print("Player present");
-            Vector3 forceDirection = rb.transform.position - transform.position;
+            Vector3 forceDirection = playerPresent[0].attachedRigidbody.transform.position - transform.position;
             //use to scale force based on distance from the impulse
             float distanceModifier = 1 - (Mathf.Clamp(forceDirection.magnitude, 0, explosionRadius) / explosionRadius);
-            rb.AddForce(forceDirection.normalized * (distanceModifier <= 0 ? 0 : explosionForce) * distanceModifier);
+            playerPresent[0].attachedRigidbody.AddForce(forceDirection.normalized * (distanceModifier <= 0 ? 0 : explosionForce) * distanceModifier);
+            
         }
     }
 }
