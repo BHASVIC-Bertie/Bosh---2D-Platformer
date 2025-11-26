@@ -32,8 +32,6 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpPressed = true;
         }
-
-        PlayerTeleportButton();
     }
 
     void FixedUpdate()
@@ -53,13 +51,6 @@ public class PlayerMovement : MonoBehaviour
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             jumpPressed = false;
             jumpsLeft--;
-        }
-    }
-    void PlayerTeleportButton()
-    {
-        if (Input.GetKey("t"))
-        {
-            transform.position = new Vector3(-8.978f, 9.68706f, 0f);
         }
     }
     private bool isGrounded;

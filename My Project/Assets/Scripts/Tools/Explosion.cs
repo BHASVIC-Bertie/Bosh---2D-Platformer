@@ -31,13 +31,6 @@ public class Explosion : MonoBehaviour
             
         }
     }
-    /*void Update()
-    {
-        if (Input.GetKey("e"))
-        {
-            
-        }
-    }*/
 
     void ExplodePlayer()
     {
@@ -46,7 +39,7 @@ public class Explosion : MonoBehaviour
         print(isPlayerPresent);
         if (isPlayerPresent > 0)
         {
-            print("Player present");
+            //print("Player present");
             Vector3 forceDirection = playerPresent[0].attachedRigidbody.transform.position - transform.position;
             //use to scale force based on distance from the impulse
             float distanceModifier = 1 - (Mathf.Clamp(forceDirection.magnitude, 0, explosionRadius) / explosionRadius);

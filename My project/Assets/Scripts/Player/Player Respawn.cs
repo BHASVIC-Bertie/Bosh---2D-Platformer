@@ -4,10 +4,12 @@ using UnityEngine;
 public class PlayerRespawn : MonoBehaviour
 {
     public Vector3 CurrentSpawnPoint;
-    public bool playerDead = false;
+    public bool playerDead;
+    public Rigidbody2D playerRB;
 
     private void Start()
     {
+        
         CurrentSpawnPoint = new Vector3(-7.884f,-1.6f,0f);
     }
 
@@ -25,11 +27,11 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
-    void RespawnPlayer()
+    protected void RespawnPlayer()
     {
         if (playerDead == true)
         {
-            transform.position = new Vector3(CurrentSpawnPoint.x, CurrentSpawnPoint.y, CurrentSpawnPoint.z);
+            transform.position = new Vector3(playerRB.CurrentSpawnPoint.x, playerRB.CurrentSpawnPoint.y, 0);
             playerDead = false;
         }
     }
