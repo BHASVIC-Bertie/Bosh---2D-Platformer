@@ -9,8 +9,7 @@ public class PlayerRespawn : MonoBehaviour
 
     private void Start()
     {
-        
-        CurrentSpawnPoint = new Vector3(-7.884f,-1.6f,0f);
+        playerRB.position = new Vector3(-7.951138f,-1.537481f,0f);
     }
 
     void Update()
@@ -29,9 +28,9 @@ public class PlayerRespawn : MonoBehaviour
 
     protected void RespawnPlayer()
     {
-        if (playerDead == true)
+        if (playerDead)
         {
-            transform.position = new Vector3(playerRB.CurrentSpawnPoint.x, playerRB.CurrentSpawnPoint.y, 0);
+            playerRB.transform.position = new Vector3(CurrentSpawnPoint.x, CurrentSpawnPoint.y, 0);
             playerDead = false;
         }
     }
