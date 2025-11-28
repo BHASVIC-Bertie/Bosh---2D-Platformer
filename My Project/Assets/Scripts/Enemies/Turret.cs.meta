@@ -5,7 +5,9 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - playerRB: {fileID: 956235888348113162, guid: 2052f8b4440c19b409cb72d8819c036f, type: 3}
-  - player: {instanceID: 0}
+  - shooter: {instanceID: 0}
+  - turret: {instanceID: 0}
+  - bullet: {fileID: 3473423217518009253, guid: 76d1e899be9d109499aa5b55dfc61b62, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

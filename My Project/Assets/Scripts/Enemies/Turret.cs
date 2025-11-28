@@ -3,6 +3,13 @@ using UnityEngine.Animations;
 
 public class Turret : Enemy
 {
+    public Transform shooter;
+    public Transform turret;
+    public GameObject bullet;
+    
+    
+    
+    //rotates towards player
     void lookAtPlayer()
     {
         Quaternion rotation = Quaternion.LookRotation(
@@ -16,7 +23,13 @@ public class Turret : Enemy
     void Update()
     {
         lookAtPlayer();
+        Shoot();
     }
-    
+
+    void Shoot()
+    {
+        Quaternion rotated = Quaternion.Euler(0f,0f, shooter.rotation.z + 90);
+        Instantiate(bullet, shooter.position, rotated);
+    }
 
 }
