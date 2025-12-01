@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: 82754c9b5eefd8b40aba5f86dcd26876
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - playerRB: {instanceID: 0}
+  - shooter: {instanceID: 0}
+  - turret: {instanceID: 0}
+  - bullet: {fileID: 1941535366543383135, guid: 76d1e899be9d109499aa5b55dfc61b62, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

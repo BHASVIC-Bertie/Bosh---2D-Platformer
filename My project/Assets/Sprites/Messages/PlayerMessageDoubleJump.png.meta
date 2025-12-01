@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 40adf22144bd2ef49885b36548ed444d
+guid: 7ee28b14ce46f3947866153f25d2bc68
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4840357602651083296
-    second: FellaStanding 1_0
+      213: 2810314523020661321
+    second: PlayerMessageDoubleJump_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FellaStanding 1_0
+      name: PlayerMessageDoubleJump_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 11
-        height: 15
+        x: 0
+        y: 4
+        width: 71
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0edee1cd76893dcb0800000000000000
-      internalID: -4840357602651083296
+      spriteID: 94294c34b2e300720800000000000000
+      internalID: 2810314523020661321
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FellaStanding 1_0: -4840357602651083296
+      PlayerMessageDoubleJump_0: 2810314523020661321
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -3,17 +3,35 @@ using UnityEngine;
 
 public class Enemy : PlayerRespawn
 {
-    void Update()
+    public PlayerRespawn playerRespawn;
+    private Vector3 playerRespawnPoint;
+
+
+    void Start()
     {
-       RespawnPlayer();
+        playerRespawn = FindObjectOfType<PlayerRespawn>();
+        playerRespawnPoint = playerRespawn.CurrentSpawnPoint;
     }
-    
+
+
     //damages the player
-    void OnCollisionEnter2D(Collision2D collision) 
-    {
-        if (collision.gameObject.CompareTag("Player")) {
-            playerDead =  true;
+    void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                playerRespawn.playerDead = true;
+                print(playerRespawn.playerDead);
+                
+            }
         }
-    } 
-    
+        void Update()
+        {
+            print(playerRespawnPoint );
+            if (playerRespawn.playerDead)
+            {
+                playerRespawn.RespawnPlayer();
+                
+            }
+        }
+
 }

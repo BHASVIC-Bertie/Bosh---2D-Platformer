@@ -14,6 +14,10 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     private GrapplingHook grapplingHook;
     public bool isGrappling;
+    
+    //player animations
+    public Animator animator;
+    
 
     void Start()
     {
@@ -24,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+
         // get movement input
         moveInput = Input.GetAxis("Horizontal");
 
@@ -32,6 +37,14 @@ public class PlayerMovement : MonoBehaviour
         {
             jumpPressed = true;
         }
+        
+        animator.SetFloat("Speed", Mathf.Abs(moveInput));
+
+        bool flipped = moveInput < 0;
+        Vector3 scale = transform.localScale;
+        scale.x = flipped ? -3 : 3;
+        transform.localScale = scale;
+        
     }
 
     void FixedUpdate()

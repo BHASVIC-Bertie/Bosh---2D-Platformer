@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c1032e197aff6b349aadcfc5c0d2d20e
+guid: 70a486f3d3539be4fb01f7b900a38038
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1135678495234720184
-    second: FellaStanding_0
+      213: -7323766932737460271
+    second: Fella_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: FellaStanding_0
+      name: Fella_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 3
         y: 0
-        width: 11
-        height: 15
+        width: 20
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8b10487039db2cf00800000000000000
-      internalID: 1135678495234720184
+      spriteID: 1d77e6417c0cc5a90800000000000000
+      internalID: -7323766932737460271
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      FellaStanding_0: 1135678495234720184
+      Fella_0: -7323766932737460271
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

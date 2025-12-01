@@ -1,44 +1,52 @@
-using System;
 using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
-    
     private Transform player;
     private Vector3 tempPos;
-    private Bounds _cameraBounds;
-    private Vector3 _targetPos;
-    
-    // Start is called before the first frame update
-    private void Awake()
+
+    private Camera cam;
+
+    private float minX, maxX, minY, maxY;
+
+    void Awake()
     {
-        //cam  = Camera.main;
+        cam = Camera.main;
     }
 
     void Start()
     {
-        //follow player
+        // Find player
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        //camera boundaries
-        /*var height = cam.size;
-        var width = height * cam.aspect;
-        
-        var minX = Globals.WorldBounds.min.x + width;
-        var maxX = Globals.WorldBounds.max.x - width;
 
-        var minY = Globals.WorldBounds.min.y + height;
-        var maxY = Globals.WorldBounds.max.y - height;
-        */
+        // Find level bounds using BoxCollider2D
+        EdgeCollider2D levelBounds = GameObject.Find("LevelBounds").GetComponent<EdgeCollider2D>();
+        if (levelBounds != null)
+        {
+            minX = levelBounds.bounds.min.x;
+            maxX = levelBounds.bounds.max.x;
+            minY = levelBounds.bounds.min.y;
+            maxY = levelBounds.bounds.max.y;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        //follow player
+        if (player == null) return;
+
+        // Follow player
         tempPos = transform.position;
         tempPos.x = player.position.x;
-        tempPos.y = player.position.y+1.8f;
-        
+        tempPos.y = player.position.y + 1.8f; // vertical offset
+        tempPos.z = transform.position.z;
+
+        // Clamp to level bounds
+        float camHeight = cam.orthographicSize;
+        float camWidth = cam.orthographicSize * cam.aspect;
+
+        tempPos.x = Mathf.Clamp(tempPos.x, minX + camWidth, maxX - camWidth);
+        tempPos.y = Mathf.Clamp(tempPos.y, minY + camHeight, maxY - camHeight);
+
         transform.position = tempPos;
     }
 }

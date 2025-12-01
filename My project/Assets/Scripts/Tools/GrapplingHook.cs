@@ -11,11 +11,14 @@ public class GrapplingHook : MonoBehaviour
     public LayerMask grappleMask;
 
     private DistanceJoint2D joint;
+    
     private Vector2 grapplePoint;
     Vector2 mousePos;
+   
+    public bool canUseGrapple;
+    
+    //testing
     public bool isGrappling;
-
-
     void Start()
     {
         joint = GetComponent<DistanceJoint2D>();
@@ -29,12 +32,11 @@ public class GrapplingHook : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canUseGrapple)
         {
+                // left click to shoot rope
+                StartGrapple();
             
-            // left click to shoot rope
-            StartGrapple();
-            print("grapple");
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -43,7 +45,7 @@ public class GrapplingHook : MonoBehaviour
             print("grapple stopped");
         }
 
-        if (isGrappling = true)
+        if (isGrappling)
         {
             UpdateRope();
         }
@@ -51,32 +53,33 @@ public class GrapplingHook : MonoBehaviour
 
     void StartGrapple()
     {
-        Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+            print("grapple");
+            Vector2 mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-        // cast a ray from the player towards the mouse cursor
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 4.5f, grappleMask);
-        
-       
-        if (hit.collider != null)
-        {
-            print("hit");
-            grapplePoint = hit.point;
-            isGrappling = true;
+            // cast a ray from the player towards the mouse cursor
+            RaycastHit2D hit = Physics2D.Raycast(rb.position, mouseWorldPos, 4.5f, grappleMask);
 
-            joint.enabled = true;
-            joint.connectedAnchor = grapplePoint;
-            joint.distance = Vector2.Distance(transform.position, grapplePoint);
 
-            //show the rope moving
-            lineRenderer.enabled = true;
-            lineRenderer.SetPosition(0, transform.position);
-            lineRenderer.SetPosition(1, transform.position);
-            UpdateRope();
-        }
-        else
-        {
-            print("miss");
-        }
+            if (hit.collider != null)
+            {
+                print("hit");
+                grapplePoint = hit.point;
+                isGrappling = true;
+
+                joint.enabled = true;
+                joint.connectedAnchor = grapplePoint;
+                joint.distance = Vector2.Distance(transform.position, grapplePoint);
+
+                //show the rope moving
+                lineRenderer.enabled = true;
+                lineRenderer.SetPosition(0, transform.position);
+                lineRenderer.SetPosition(1, transform.position);
+                UpdateRope();
+            }
+            else
+            {
+                print("miss");
+            }
     }
 
     void UpdateRope()
