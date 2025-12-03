@@ -23,6 +23,7 @@ public class Turret : Enemy
 
     void Update()
     {
+        //turns to face the player
         lookAtPlayer();
 
         distanceToPlayer = Vector3.Distance(transform.position, playerRespawn.playerRB.transform.position);
@@ -41,6 +42,7 @@ public class Turret : Enemy
 
     }
 
+    //spawns a bullet that moves towards the player
     void Shoot()
     {
         GameObject b = Instantiate(bullet, shooter.position, shooter.rotation);
@@ -48,6 +50,7 @@ public class Turret : Enemy
         Bullet bulletScript = b.GetComponent<Bullet>();
         Vector3 dir = playerRespawn.playerRB.transform.position - shooter.position;
         bulletScript.SetDirection(dir);
+        
 
     }
 
