@@ -19,7 +19,7 @@ public class CameraScript : MonoBehaviour
         // Find player
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
-        // Find level bounds using BoxCollider2D
+        // Find level bounds using EdgeCollider2D
         EdgeCollider2D levelBounds = GameObject.Find("LevelBounds").GetComponent<EdgeCollider2D>();
         if (levelBounds != null)
         {

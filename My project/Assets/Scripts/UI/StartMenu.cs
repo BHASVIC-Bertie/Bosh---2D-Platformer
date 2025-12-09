@@ -9,6 +9,7 @@ public class StartMenu : MonoBehaviour
     public bool isPaused;
     private void Start()
     {
+        //pauses the game when started
         Time.timeScale = 0f;
         Menu.SetActive(true);
         Settings.SetActive(false);

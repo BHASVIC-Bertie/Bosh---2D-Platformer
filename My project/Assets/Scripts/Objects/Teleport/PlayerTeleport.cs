@@ -34,7 +34,7 @@ public class PlayerTeleport : MonoBehaviour
             teleportPlayer = false;
         }
     }
-
+    //allows the player to be teleported when they are touching 
     void OnCollisionEnter2D(Collision2D collision)
         {
             if (collision.gameObject.CompareTag("Player"))

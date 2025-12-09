@@ -23,6 +23,7 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
+    //player dies if collides with the barrier
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("DeathBarrier"))
@@ -31,6 +32,7 @@ public class PlayerRespawn : MonoBehaviour
         }
     }
 
+    //changes the player's position to the respawn point
     public void RespawnPlayer()
     {
             print(CurrentSpawnPoint);

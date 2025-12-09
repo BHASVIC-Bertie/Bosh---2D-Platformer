@@ -10,6 +10,8 @@ public class PauseGame : StartMenu
     {
         //StartCoroutine(CheckForPause());
     }
+    
+    //pauses and unpauses the game 
     void Pause()
     {
         if (Input.GetButton("Cancel") && !isPaused)

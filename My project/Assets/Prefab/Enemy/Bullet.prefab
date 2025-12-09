@@ -107,6 +107,7 @@ MonoBehaviour:
   CurrentSpawnPoint: {x: 0, y: 0, z: 0}
   playerDead: 0
   playerRB: {fileID: 0}
+  playerRespawn: {fileID: 6032059983918525076, guid: 4dc4d4a35e0b22845bed165c32961f5c, type: 3}
   speed: 6
 --- !u!61 &-6426130317792564952
 BoxCollider2D:

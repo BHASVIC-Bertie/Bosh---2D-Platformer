@@ -22,9 +22,9 @@ public class SpawnBomb : MonoBehaviour
             }
         }
     }
+    //throws the bomb
     void ThrowBomb()
     {
-        
             GameObject newBomb = Instantiate(Bomb, new Vector3(player.position.x + 0.025f, player.position.y, 0), Quaternion.identity);
     }
     
