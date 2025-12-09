@@ -9,6 +9,7 @@ public class Enemy : PlayerRespawn
 
     void Start()
     {
+        playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         playerRespawn = FindObjectOfType<PlayerRespawn>();
         playerRespawnPoint = playerRespawn.CurrentSpawnPoint;
     }

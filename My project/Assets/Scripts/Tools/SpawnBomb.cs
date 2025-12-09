@@ -1,4 +1,3 @@
-using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 public class SpawnBomb : MonoBehaviour
