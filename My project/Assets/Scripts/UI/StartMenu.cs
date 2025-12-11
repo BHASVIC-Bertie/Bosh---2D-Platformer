@@ -44,6 +44,7 @@ public class StartMenu : MonoBehaviour
     {
              Menu.SetActive(true);
              Settings.SetActive(false); 
+             
              Controls.SetActive(false);
     }
 }
